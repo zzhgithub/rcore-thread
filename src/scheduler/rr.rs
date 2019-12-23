@@ -62,6 +62,7 @@ impl RRSchedulerInner {
     }
 
     fn pop(&mut self) -> Option<Tid> {
+        trace!("RR info len is {}",self.infos.len());
         let ret = match self.infos[0].next {
             0 => None,
             tid => {
